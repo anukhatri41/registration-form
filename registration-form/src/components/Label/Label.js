@@ -1,9 +1,9 @@
 import React from 'react';
 import './Label.css';
 
-function Label() {
+function Label(props) {
   return (
-    <label></label>
+    <label htmlFor={props.htmlFor}>{props.value}</label>
   );
 }
 

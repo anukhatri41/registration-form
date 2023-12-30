@@ -1,11 +1,9 @@
 import React from 'react';
 import './Button.css';
 
-function Button() {
+function Button(props) {
   return (
-    <div>
-      
-    </div>
+    <button id={props.id} disabled={props.disabled} onClick={props.onClick}>{props.buttonText}</button>
   );
 }
 

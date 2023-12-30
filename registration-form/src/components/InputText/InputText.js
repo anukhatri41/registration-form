@@ -1,11 +1,9 @@
 import React from 'react';
 import './InputText.css';
 
-function InputText() {
+function InputText(props) {
   return (
-    <div>
-      
-    </div>
+      <input value={props.value} onChange={props.setValue} placeholder={props.placeholder} id={props.id} name={props.name} type="text" />
   );
 }
 

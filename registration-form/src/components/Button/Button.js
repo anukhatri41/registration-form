@@ -3,8 +3,16 @@ import './Button.css';
 
 function Button(props) {
   return (
-    <button id={props.id} disabled={props.disabled} onClick={props.onClick}>{props.buttonText}</button>
+    <button {...props}>{props.buttonText}</button>
   );
 }
 
 export default Button;
+
+/**
+ * Props:
+ * id
+ * buttonText
+ * disabled
+ * onClick
+ */

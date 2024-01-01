@@ -1,5 +1,4 @@
-import {BrowserRouter as Router, Switch, Route, Routes } from "react-router-dom";
-import App from "../../App";
+import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import { HomePage } from "../../pages/HomePage";
 import { LoginPage } from "../../pages/LoginPage";

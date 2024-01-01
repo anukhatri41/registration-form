@@ -13,6 +13,8 @@ function Form() {
     last_name: "",
     email: "",
     username: "",
+    password: "",
+    retype_password: ""
   });
 
   const handleChange = (e) => {
@@ -25,25 +27,32 @@ function Form() {
   return (
     <form>
       <Label htmlFor="first_name" value="First Name" />
-      <InputText placeholder="First Name" name="first_name" id="first_name" value={state.first_name} setValue={handleChange }/>
+      <InputText placeholder="First Name" name="first_name" id="first_name" value={state.first_name} onChange={handleChange} />
 
       <Label htmlFor="last_name" value="Last Name" />
-      <InputText placeholder="Last Name" name="last_name" id="last_name" value={state.last_name}/>
+      <InputText placeholder="Last Name" name="last_name" id="last_name" value={state.last_name} onChange={handleChange} />
 
       <Label htmlFor="email" value="Email" />
-      <InputEmail placeholder="Email" name="email" id="email" value={state.email}/>
+      <InputEmail placeholder="Email" name="email" id="email" value={state.email} onChange={handleChange}/>
 
       <Label htmlFor="username" value="Username" />
-      <InputText placeholder="Username" name="username" id="username" value={state.username}/>
+      <InputText placeholder="Username" name="username" id="username" value={state.username} onChange={handleChange}/>
 
       <Label htmlFor="password" value="Password" />
-      <InputPassword placeholder="Password" id="password"/>
+      <InputPassword placeholder="Password" name="password" id="password" value={state.password} onChange={handleChange}/>
 
       <Label htmlFor="retype_password" value="Retype Password" />
-      <InputPassword placeholder="Retype Password" id="retype_password"/>
+      <InputPassword placeholder="Retype Password" name="retype_password" id="retype_password" onChange={handleChange} />
+
 
     </form>
   );
 }
 
 export default Form;
+
+/*
+/>
+
+      
+      */

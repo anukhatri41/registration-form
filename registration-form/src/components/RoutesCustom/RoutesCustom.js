@@ -16,7 +16,6 @@ export const RoutesCustom = () => {
                     <Route path='/register' element={<RegisterPage />} />
                 </Routes>
             </Router>
-            
         </div>
         
     );   

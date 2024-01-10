@@ -5,6 +5,7 @@ import InputText from '../InputText/InputText';
 import InputEmail from '../InputEmail/InputEmail';
 import InputPassword from '../InputPassword/InputPassword';
 import Button from '../Button/Button';
+import validateRegisterForm from '../../hooks/validateRegisterForm';
 
 
 function RegisterForm() {
@@ -15,6 +16,9 @@ function RegisterForm() {
     username: "",
     password: "",
     confirm_password: "",
+  });
+
+  const [errors, setErrors] = useState({
     form_errors: {}
   });
 
@@ -25,41 +29,51 @@ function RegisterForm() {
     });
   };
 
-  /*const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if()
-  }*/
+    if(validateRegisterForm({state, setErrors})) {
+      alert('You have been successfully registered')
+    } else{
+      return;
+    }
+  }
   
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div>
         <Label htmlFor="first_name" value="First Name*" />
-        <InputText placeholder="First Name" name="first_name" id="first_name" value={state.first_name} onChange={handleChange} required />
+        <InputText placeholder="First Name" name="first_name" id="first_name" value={state.first_name} onChange={handleChange} />
+        {errors.form_errors["firstNameErr"] && <div style={{ color: "red", paddingBottom: 10 }}>{errors.form_errors["firstNameErr"]}</div>}    
       </div>
       
       <div>
         <Label htmlFor="last_name" value="Last Name*" />
-        <InputText placeholder="Last Name" name="last_name" id="last_name" value={state.last_name} onChange={handleChange} required />
+        <InputText placeholder="Last Name" name="last_name" id="last_name" value={state.last_name} onChange={handleChange} />
+        {errors.form_errors["lastNameErr"] && <div style={{ color: "red", paddingBottom: 10 }}>{errors.form_errors["lastNameErr"]}</div>}    
       </div>
       
       <div>
         <Label htmlFor="email" value="Email*" />
-        <InputEmail placeholder="Email" name="email" id="email" value={state.email} onChange={handleChange} required />
+        <InputEmail placeholder="Email" name="email" id="email" value={state.email} onChange={handleChange} />
+        {errors.form_errors["emailErr"] && <div style={{ color: "red", paddingBottom: 10 }}>{errors.form_errors["emailErr"]}</div>}    
       </div>
       
       <div>
         <Label htmlFor="username" value="Username*" />
-        <InputText placeholder="Username" name="username" id="username" value={state.username} onChange={handleChange}required />
+        <InputText placeholder="Username" name="username" id="username" value={state.username} onChange={handleChange} />
+        {errors.form_errors["usernameErr"] && <div style={{ color: "red", paddingBottom: 10 }}>{errors.form_errors["usernameErr"]}</div>}    
       </div>
       
       <div>
         <Label htmlFor="password" value="Password*" />
-        <InputPassword placeholder="Password" name="password" id="password" value={state.password} onChange={handleChange} required />
+        <InputPassword placeholder="Password" name="password" id="password" value={state.password} onChange={handleChange} />
+        {errors.form_errors["passwordErr"] && <div style={{ color: "red", paddingBottom: 10 }}>{errors.form_errors["passwordErr"]}</div>}    
       </div>
       
       <div>
         <Label htmlFor="confirm_password" value="Confirm Password*" />
-        <InputPassword placeholder="Confirm Password" name="confirm_password" id="confirm_password" onChange={handleChange} required />
+        <InputPassword placeholder="Confirm Password" name="confirm_password" id="confirm_password" onChange={handleChange} />
+        {errors.form_errors["confirmPasswordErr"] && <div style={{ color: "red", paddingBottom: 10 }}>{errors.form_errors["confirmPasswordErr"]}</div>}    
       </div>
       
 

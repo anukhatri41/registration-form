@@ -32,7 +32,15 @@ function RegisterForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(validateRegisterForm({state, setErrors})) {
-      alert('You have been successfully registered')
+      alert('You have been successfully registered');
+      setState({
+        first_name: "",
+        last_name: "",
+        email: "",
+        username: "",
+        password: "",
+        confirm_password: ""
+      });
     } else{
       return;
     }
@@ -72,7 +80,7 @@ function RegisterForm() {
       
       <div>
         <Label htmlFor="confirm_password" value="Confirm Password*" />
-        <InputPassword placeholder="Confirm Password" name="confirm_password" id="confirm_password" onChange={handleChange} />
+        <InputPassword placeholder="Confirm Password" name="confirm_password" id="confirm_password" value={state.confirm_password}onChange={handleChange} />
         {errors.form_errors["confirmPasswordErr"] && <div style={{ color: "red", paddingBottom: 10 }}>{errors.form_errors["confirmPasswordErr"]}</div>}    
       </div>
       

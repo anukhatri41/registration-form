@@ -21,7 +21,7 @@ function validateRegisterForm({state, setErrors}) {
     formErrors["emailErr"] = "Email is required";
    } else if (!( /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email))){
     formIsValid = false;
-    formErrors["emailErr"] = "Invalide email format";
+    formErrors["emailErr"] = "Invalid email format";
    }
 
    // Username

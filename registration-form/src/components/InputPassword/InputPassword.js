@@ -19,9 +19,9 @@ function InputPassword(props) {
   }
 
   return (
-    <div>
-      <input type={type} {...props}/>
-      <button type="button" onClick={handleToggle}>
+    <div className='password-container'>
+      <input className='input-password' type={type} {...props}/>
+      <button className='button-eye'type="button" onClick={handleToggle}>
         <Icon icon={icon} size={25}/>
       </button>
     </div>
